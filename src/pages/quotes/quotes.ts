@@ -22,4 +22,6 @@ export class QuotesPage implements OnInit{
   ngOnInit() {
     this.quoteGroup = this.navParams.data;
   }
+
+
 }
