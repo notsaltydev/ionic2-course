@@ -11,14 +11,13 @@ export class SettingsPage {
   constructor(private settingsService: SettingsService) {
   }
 
-
   onToggle(toggle: Toggle) {
     console.log(toggle);
     this.settingsService.setBackground(toggle.checked);
   }
 
   checkAltBackground() {
-    this.settingsService.isAltBackground();
+    return this.settingsService.isAltBackground();
   }
 
 }
