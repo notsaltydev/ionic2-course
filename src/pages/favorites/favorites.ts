@@ -5,10 +5,13 @@ import {ModalController} from 'ionic-angular';
 import {QuotePage} from '../quote/quote';
 
 
+
+
 @Component({
   selector: 'page-favorites',
   templateUrl: 'favorites.html',
 })
+
 export class FavoritesPage {
   quotes: Quote[];
 
@@ -24,8 +27,18 @@ export class FavoritesPage {
     const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
     modal.onDidDismiss((remove: boolean) => {
-
+      if(remove) {
+        this.onRemoveFromFavorites(quote);
+      }
+      console.log(remove);
     });
+    /*modal.willLeave.subscribe(
+      (remove: boolean) => console.log(remove)
+    );*/
+  }
+
+   onRemoveFromFavorites(quote: Quote) {
+    this.quotesService.removeQuoteFormFavorites(quote);
   }
 
 
